@@ -18,19 +18,23 @@ public class Main {
 
 
         BeanFactory beanFactory=new XmlBeanFactory(new ClassPathResource("bean.xml"));
-        Movie movie1=(Movie) beanFactory.getBean("movie");
+        Movie movie1=(Movie) beanFactory.getBean("movie1");
         System.out.println(movie1.getActor());
+
+
 
 
         BeanDefinitionRegistry beanDefinitionRegistry=new DefaultListableBeanFactory();
         BeanDefinitionReader beanDefinitionReader=new XmlBeanDefinitionReader(beanDefinitionRegistry);
         beanDefinitionReader.loadBeanDefinitions(new ClassPathResource("bean.xml"));
-        Movie movie2=((DefaultListableBeanFactory) beanDefinitionRegistry).getBean(Movie.class);
+        Movie movie2=(Movie)((DefaultListableBeanFactory) beanDefinitionRegistry).getBean("movie2");
         System.out.println(movie2.getActor());
+        System.out.println(movie1==movie2);
 
         ApplicationContext context=new ClassPathXmlApplicationContext("bean.xml");
-        Movie movie3=context.getBean(Movie.class);
+        Movie movie3=(Movie)context.getBean("movie3");
         System.out.println(movie3.getActor());
+        System.out.println(movie1==movie3);
 
 
 
