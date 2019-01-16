@@ -1,0 +1,37 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="actor" class="com.stackroute.domain.Actor">
+        <property name="Name" value="RRR"></property>
+        <property name="Gender" value="male"></property>
+        <property name="Age" value="32"></property>
+    </bean>
+
+    <bean id="actor2" class="com.stackroute.domain.Actor">
+        <constructor-arg type="String" value="BBB"></constructor-arg>
+        <constructor-arg type="String" value="male"></constructor-arg>
+        <constructor-arg type="int" value="32"></constructor-arg>
+    </bean>
+
+    <bean name="actor3" class="com.stackroute.domain.Actor">
+        <constructor-arg index="0" value="CCC"></constructor-arg>
+        <constructor-arg index="1" value="male"></constructor-arg>
+        <constructor-arg index="2" value="32"></constructor-arg>
+    </bean>
+
+    <bean id="movie1" class="com.stackroute.domain.Movie" autowire="byName">
+    </bean>
+
+    <bean id="movie2" class="com.stackroute.domain.Movie">
+        <constructor-arg name="actor" ref="actor2"></constructor-arg>
+    </bean>
+
+    <bean name="movie3,movie4" class="com.stackroute.domain.Movie" scope="prototype">
+        <property name="actor" ref="actor3"></property>
+    </bean>
+
+</beans>

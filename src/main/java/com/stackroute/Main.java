@@ -13,44 +13,31 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 
 public class Main {
-    public static void main(String[] args){
-        //Movie movie=new Movie();
+    public static void main(String[] args) {
+//        BeanFactory beanFactory = new XmlBeanFactory(new ClassPathResource("beans.xml"));
+//        Movie movieA = (Movie) beanFactory.getBean("movie1");
+//        System.out.println(movieA.getActor());
 
+//        BeanDefinitionRegistry beanDefinitionRegistry = new DefaultListableBeanFactory();
+//        BeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanDefinitionRegistry);
+//        beanDefinitionReader.loadBeanDefinitions(new ClassPathResource("beans.xml"));
+//        Movie movieB = (Movie)((DefaultListableBeanFactory) beanDefinitionRegistry).getBean("movie2");
+//        System.out.println(movieB.getActor());
+//
+        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+        Movie movieC = (Movie)context.getBean("movie3");
+        Movie movieD = (Movie)context.getBean("movie3");
+        Movie movieE = (Movie)context.getBean("movie2");
+        System.out.println(movieC.getActor());
+        System.out.println(movieD == movieC);
 
-        BeanFactory beanFactory=new XmlBeanFactory(new ClassPathResource("bean.xml"));
-        Movie movie1=(Movie) beanFactory.getBean("movie1");
-        System.out.println(movie1.getActor());
-
-
-
-
-        BeanDefinitionRegistry beanDefinitionRegistry=new DefaultListableBeanFactory();
-        BeanDefinitionReader beanDefinitionReader=new XmlBeanDefinitionReader(beanDefinitionRegistry);
-        beanDefinitionReader.loadBeanDefinitions(new ClassPathResource("bean.xml"));
-        Movie movie2=(Movie)((DefaultListableBeanFactory) beanDefinitionRegistry).getBean("movie2");
-        System.out.println(movie2.getActor());
-        System.out.println(movie1==movie2);
-
-        ApplicationContext context=new ClassPathXmlApplicationContext("bean.xml");
-        Movie movie3=(Movie)context.getBean("movie3");
-        Movie movie4=(Movie)context.getBean("movie3");
-
-        System.out.println(movie3.getActor());
-        System.out.println(movie4.getActor());
-
-        System.out.println(movie3 == movie4);
-
-
-
-
-
-
-
+        System.out.println(movieE.getActor());
 
 
     }
-
-
-
 }
+
+
+
+
 

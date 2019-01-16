@@ -9,9 +9,9 @@ public class Actor {
         return Name;
     }
 
-    Actor(){}
+    public Actor(){}
 
-    public Actor(String name, String gender, int age) {
+     Actor(String name, String gender, int age) {
         Name = name;
         Gender = gender;
         Age = age;
