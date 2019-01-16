@@ -34,4 +34,6 @@
         <property name="actor" ref="actor3"></property>
     </bean>
 
+    <bean id="BeanlifeCycleDemoBean" class="com.stackroute.domain.BeanLifeCycleDemoBin" init-method="customInit" destroy-method="customDestroy2"></bean>
+
 </beans>
