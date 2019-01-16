@@ -33,7 +33,6 @@ public class Movie implements ApplicationContextAware, BeanNameAware, BeanFactor
 
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         Actor actor= (Actor) applicationContext.getBean("actor2");
-
         System.out.println("from application context aware "+actor.getGender());
 
     }
