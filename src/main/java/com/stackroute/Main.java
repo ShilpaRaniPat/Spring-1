@@ -33,8 +33,12 @@ public class Main {
 
         ApplicationContext context=new ClassPathXmlApplicationContext("bean.xml");
         Movie movie3=(Movie)context.getBean("movie3");
+        Movie movie4=(Movie)context.getBean("movie3");
+
         System.out.println(movie3.getActor());
-        System.out.println(movie1==movie3);
+        System.out.println(movie4.getActor());
+
+        System.out.println(movie3 == movie4);
 
 
 
