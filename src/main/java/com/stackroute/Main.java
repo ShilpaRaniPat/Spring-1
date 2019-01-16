@@ -1,6 +1,5 @@
 package com.stackroute;
 
-import com.stackroute.domain.Actor;
 import com.stackroute.domain.Movie;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionReader;
@@ -17,18 +16,18 @@ public class Main {
         //Movie movie=new Movie();
 
 
-        BeanFactory beanFactory=new XmlBeanFactory(new ClassPathResource("bean.xml"));
+        BeanFactory beanFactory=new XmlBeanFactory(new ClassPathResource("beans.xml"));
         Movie movie1=(Movie) beanFactory.getBean("movie");
         System.out.println(movie1.getActor());
 
 
         BeanDefinitionRegistry beanDefinitionRegistry=new DefaultListableBeanFactory();
         BeanDefinitionReader beanDefinitionReader=new XmlBeanDefinitionReader(beanDefinitionRegistry);
-        beanDefinitionReader.loadBeanDefinitions(new ClassPathResource("bean.xml"));
+        beanDefinitionReader.loadBeanDefinitions(new ClassPathResource("beans.xml"));
         Movie movie2=((DefaultListableBeanFactory) beanDefinitionRegistry).getBean(Movie.class);
         System.out.println(movie2.getActor());
 
-        ApplicationContext context=new ClassPathXmlApplicationContext("bean.xml");
+        ApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
         Movie movie3=context.getBean(Movie.class);
         System.out.println(movie3.getActor());
 

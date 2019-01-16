@@ -1,0 +1,53 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+    <bean id="actor" class="com.stackroute.domain.Actor" >
+    <property name="Name" value="SRK"></property>
+    <property name="Gender" value="Male"></property>
+    <property name="Age" value="50"></property>
+    </bean>
+    <bean id="actor2" class="com.stackroute.domain.Actor">
+        <!--<constructor-arg type="String" value="Aamir"></constructor-arg>-->
+        <!--<constructor-arg type="String" value="Male" ></constructor-arg>-->
+        <!--<constructor-arg type="int" value="52" ></constructor-arg>-->
+        <property name="Name" value="Aamir"></property>
+        <property name="Gender" value="Male"></property>
+        <property name="Age" value="50"></property>
+    </bean>
+
+
+    <bean id="actor3" class="com.stackroute.domain.Actor">
+    <!--<constructor-arg index="0" value="Salmaan"></constructor-arg>-->
+    <!--<constructor-arg index="1" value="Male"></constructor-arg>-->
+    <!--<constructor-arg index="2" value="55"></constructor-arg>-->
+        <property name="Name" value="Salmaan"></property>
+        <property name="Gender" value="Male"></property>
+        <property name="Age" value="50"></property>
+    </bean>
+
+    <bean id="movie1" class="com.stackroute.domain.Movie" scope="prototype" >
+        <!--<constructor-arg ref="actor1"></constructor-arg>-->
+        <property name="actor" ref="actor1"></property>
+
+
+
+    </bean>
+    <bean id="movie2" class="com.stackroute.domain.Movie" autowire="byName" >
+        <!--<constructor-arg ref="actor2"></constructor-arg>-->
+        <!--<property name="actor" ref="actor2"></property>-->
+
+    </bean>
+    <bean id="movie3" class="com.stackroute.domain.Movie" autowire="byType">
+    <constructor-arg ref="actor2"></constructor-arg>
+
+    </bean>
+
+
+
+
+</beans>
